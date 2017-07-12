@@ -40,4 +40,10 @@ public class ThreadDeadlock {
             return "";
         }
     }
+    public String test(String[] args) throws ExecutionException, InterruptedException {
+        ThreadDeadlock threadDeadlock=new ThreadDeadlock();
+        Future<String> result;
+        result=threadDeadlock.exec.submit(new RenderPageTask());
+        return result.get();
+    }
 }

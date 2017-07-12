@@ -26,7 +26,6 @@ public class PrimeProducer extends Thread {
             /* Allow thread to exit */
         }
     }
-
     public void cancel() {
         interrupt();
     }

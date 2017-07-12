@@ -27,7 +27,7 @@ public class InduceLockOrder {
         int fromHash = System.identityHashCode(fromAcct);
         int toHash = System.identityHashCode(toAcct);
 
-        if (fromHash < toHash) {
+        if (fromHash <= toHash) {
             synchronized (fromAcct) {
                 synchronized (toAcct) {
                     new Helper().transfer();
@@ -37,14 +37,6 @@ public class InduceLockOrder {
             synchronized (toAcct) {
                 synchronized (fromAcct) {
                     new Helper().transfer();
-                }
-            }
-        } else {
-            synchronized (tieLock) {
-                synchronized (fromAcct) {
-                    synchronized (toAcct) {
-                        new Helper().transfer();
-                    }
                 }
             }
         }

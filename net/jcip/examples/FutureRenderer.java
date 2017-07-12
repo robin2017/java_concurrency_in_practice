@@ -16,7 +16,7 @@ public abstract class FutureRenderer {
 
     void renderPage(CharSequence source) {
         final List<ImageInfo> imageInfos = scanForImageInfo(source);
-        Callable<List<ImageData>> task =
+        Callable<List<ImageData>> task =  //建立任务
                 new Callable<List<ImageData>>() {
                     public List<ImageData> call() {
                         List<ImageData> result = new ArrayList<ImageData>();
@@ -26,7 +26,7 @@ public abstract class FutureRenderer {
                     }
                 };
 
-        Future<List<ImageData>> future = executor.submit(task);
+        Future<List<ImageData>> future = executor.submit(task);  //提交任务
         renderText(source);
 
         try {
